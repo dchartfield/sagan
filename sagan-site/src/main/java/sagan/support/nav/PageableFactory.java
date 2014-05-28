@@ -21,12 +21,12 @@ public abstract class PageableFactory {
         return build(0, 20);
     }
 
-    private static Pageable build(int page, int pageSize) {
-        return new PageRequest(page, pageSize, Sort.Direction.DESC, "publishAt");
-    }
-
     public static Pageable forSearch(int page) {
         return new PageRequest(page - 1, 10);
+    }
+
+    private static Pageable build(int page, int pageSize) {
+        return new PageRequest(page, pageSize, Sort.Direction.DESC, "publishAt");
     }
 
 }
